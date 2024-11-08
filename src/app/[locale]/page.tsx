@@ -88,7 +88,7 @@ export default function Home(
 								{home.headline}
 							</Heading>
 						</RevealFx>
-						<RevealFx translateY="8" delay={0.0} gap="m">
+						<RevealFx translateY="8" delay={0.0}>
 							<Text
 								wrap="balance"
 								onBackground="neutral-weak"

@@ -187,13 +187,7 @@ const about = {
                     <>Coursework include Data Structures and Algorithms, Design and Analysis of Algorithms, Artificial Intelligence, Database Management Systems, Operating System, Computer Networks, Software Engineering and Cybersecurity.</>,
                     <>Ranked #1 in coding competitions and revitalized student and developer clubs, leading key initiatives.</>
                 ],
-                images: [ // optional: leave the array empty if you don't want to display images
-                    // {
-                    //     src: '/images/projects/project-01/cover-01.jpg',
-                    //     alt: 'Once UI Project',
-                    //     width: 16,
-                    //     height: 9
-                    // }
+                images: [
                 ]
             },
             ]

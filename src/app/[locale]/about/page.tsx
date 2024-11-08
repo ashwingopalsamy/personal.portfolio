@@ -1,9 +1,9 @@
-import {Avatar, Button, Flex, Heading, Icon, IconButton, RevealFx, SmartImage, Tag, Text} from '@/once-ui/components';
-import { baseURL, renderContent } from '@/app/resources';
+import {Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text} from '@/once-ui/components';
+import {baseURL, renderContent} from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
+import {useTranslations} from 'next-intl';
 import React from "react";
 
 export async function generateMetadata(
@@ -56,10 +56,13 @@ export default function About(
             display: about.work.display,
             items: about.work.experiences.map(experience => experience.company)
         },
-        { 
+        {
+            // @ts-ignore
             title: about.soft.title,
+            // @ts-ignore
             display: about.soft.display,
-            items: about.soft.education.map(education => education.course)
+            // @ts-ignore
+            items: about.soft.education.map((education: { course: any; }) => education.course)
         },
         { 
             title: about.technical.title,
@@ -67,6 +70,9 @@ export default function About(
             items: about.technical.skills.map(skill => skill.title)
         },
     ]
+
+    // @ts-ignore
+    const {education: education1, title, display} = about.soft;
     return (
         <Flex
             fillWidth maxWidth="m"
@@ -155,7 +161,7 @@ export default function About(
                         {social.length > 0 && (
                             <Flex
                                 className={styles.blockAlign}
-                                paddingTop="10" paddingBottom="8" gap="8" wrap>
+                                paddingBottom="8" gap="8" wrap>
                                 {social.map((item) => (
                                     item.link && (
                                         <Button
@@ -189,7 +195,7 @@ export default function About(
                                     Download Resume
                                 </Flex>
                                 <IconButton
-                                    href={`${person.resume}`}
+                                    href={`/docs/Resume_AshwinGopalsamy.pdf`}
                                     data-border="rounded"
                                     variant="tertiary"
                                     icon="chevronDown" />
@@ -277,6 +283,7 @@ export default function About(
                             <Heading
                                 as="h2"
                                 id={about.work.title}
+                                // @ts-ignore
                                 variant="display-medium-s"
                                 marginBottom="m">
                                 {about.work.title}
@@ -350,19 +357,22 @@ export default function About(
                         </>
                     )}
 
-                    { about.soft.display && (
+                    { display && (
                         <>
                             <Heading
                                 as="h2"
-                                id={about.soft.title}
+                                // @ts-ignore
+                                id={title}
+                                // @ts-ignore
                                 variant="display-medium-s"
                                 marginBottom="m">
-                                {about.soft.title}
+
+                                {title}
                             </Heading>
                             <Flex
                                 direction="column"
                                 fillWidth gap="l" marginBottom="40">
-                                {about.soft.education.map((education, index) => (
+                                {education1.map((education: { course: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | Promise<React.AwaitedReactNode> | null | undefined; role: any; timeframe: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; college: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; achievements: string[]; images: any[]; }, index: any) => (
                                     <Flex
                                         key={`${education.course}-${education.role}-${index}`}
                                         fillWidth
@@ -373,6 +383,7 @@ export default function About(
                                             alignItems="flex-end"
                                             marginBottom="4">
                                             <Text
+                                                // @ts-ignore
                                                 id={education.course}
                                                 variant="heading-strong-l">
                                                 {education.course}
@@ -433,6 +444,7 @@ export default function About(
                             <Heading
                                 as="h2"
                                 id={about.technical.title}
+                                // @ts-ignore
                                 variant="display-medium-s"
                                 marginBottom="40">
                                 {about.technical.title}
