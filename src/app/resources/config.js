@@ -1,4 +1,4 @@
-const baseURL = 'demo.app'
+const baseURL = 'ashwingopalsamy.in'
 
 // Enable localization
 const i18n = false;
@@ -14,7 +14,7 @@ const routes = {
     '/about':   true,
     '/work':    true,
     '/blog':    true,
-    '/gallery': true,
+    '/reads': true,
 }
 
 // Enable password protection on selected routes
@@ -30,20 +30,20 @@ const effects = {
 }
 
 const style = {
-    theme:       'dark',         // dark | light
-    neutral:     'gray',         // sand | gray | slate
-    brand:       'aqua',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-    accent:      'yellow',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    theme:       'light',         // dark | light
+    neutral:     'slate',         // sand | gray | slate
+    brand:       'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    accent:      'green',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     solid:       'contrast',     // color | contrast
     solidStyle:  'flat',         // flat | plastic
-    border:      'playful',      // rounded | playful | conservative
+    border:      'rounded',      // rounded | playful | conservative
     surface:     'translucent',  // filled | translucent
     transition:  'all'           // all | micro | macro
 }
 
 const display = {
-    location: true,
-    time:     true
+    location: false,
+    time:     false
 }
 
 const mailchimp = {

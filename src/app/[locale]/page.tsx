@@ -99,7 +99,7 @@ export default function Home(
 						<RevealFx translateY="12" delay={0.4}>
 							<Button
 								data-border="rounded"
-								href={`/${locale}/about`}
+								href={`/${locale}/reads`}
 								variant="tertiary"
 								suffixIcon="chevronRight"
 								size="m">

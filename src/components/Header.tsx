@@ -30,7 +30,7 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = 'en-GB' })
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
-                hour12: false,
+                hour12: true,
             };
             const timeString = new Intl.DateTimeFormat(locale, options).format(now);
             setCurrentTime(timeString);
@@ -127,7 +127,7 @@ export const Header = () => {
                                 <Flex paddingX="2" hide="s">{blog.label}</Flex>
                             </ToggleButton>
                         )}
-                        { routes['/gallery'] && (
+                        { routes['/reads'] && (
                             <ToggleButton
                                 prefixIcon="gallery"
                                 href={`/${params?.locale}/gallery`}
@@ -163,7 +163,7 @@ export const Header = () => {
                     }
                     <Flex hide="s">
                         { display.time && (
-                            <TimeDisplay timeZone={person.location}/>
+                            <TimeDisplay timeZone="Asia/Calcutta"/>
                         )}
                     </Flex>
                 </Flex>
