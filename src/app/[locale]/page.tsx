@@ -88,18 +88,18 @@ export default function Home(
 								{home.headline}
 							</Heading>
 						</RevealFx>
-						<RevealFx translateY="8" delay={0.2}>
+						<RevealFx translateY="8" delay={0.0} gap="m">
 							<Text
 								wrap="balance"
 								onBackground="neutral-weak"
-								variant="body-default-l">
+								variant="heading-default-l">
 								{home.subline}
 							</Text>
 						</RevealFx>
-						<RevealFx translateY="12" delay={0.4}>
+						<RevealFx translateY="12" delay={0.1}>
 							<Button
 								data-border="rounded"
-								href={`/${locale}/reads`}
+								href={`/${locale}/about`}
 								variant="tertiary"
 								suffixIcon="chevronRight"
 								size="m">
@@ -112,25 +112,21 @@ export default function Home(
 											src={person.avatar}
 											size="m"/>
 										)}
-									Resume
+									See more
 								</Flex>
 							</Button>
 						</RevealFx>
 					</Flex>
 				
 			</Flex>
-			<RevealFx translateY="16" delay={0.6}>
-				<Projects range={[1,1]} locale={locale}/>
-			</RevealFx>
-			{routes['/blog'] && (
-				<Flex fillWidth paddingX="20">
-					<Posts range={[1,2]} columns="2" locale={locale}/>
-				</Flex>
-			)}
-			<Projects range={[2]} locale={locale}/>
-			{ newsletter.display &&
-				<Mailchimp newsletter={newsletter} />
-			}
+			{/*{routes['/blog'] && (*/}
+			{/*	<Flex fillWidth paddingX="20">*/}
+			{/*		<Posts range={[1,2]} columns="2" locale={locale}/>*/}
+			{/*	</Flex>*/}
+			{/*)}*/}
+			{/*{ newsletter.display &&*/}
+			{/*	<Mailchimp newsletter={newsletter} />*/}
+			{/*}*/}
 		</Flex>
 	);
 }

@@ -10,7 +10,8 @@ const person = {
     role:      'Software Engineer',
     avatar:    '/images/avatar.png',
     location:  '',
-    languages: []  // optional: Leave the array empty if you don't want to display languages
+    languages: ['English', 'German'],  // optional: Leave the array empty if you don't want to display languages
+    resume:'/docs/Resume_AshwinGopalsamy.pdf',
 }
 
 const newsletter = {
@@ -75,7 +76,9 @@ const about = {
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>Growth-stage engineer, blogger and open-source contributor with around 4 years of experience in product development, cloud-native architecture and distributed systems.<br/></>
+        description: <>Product-first engineer, blogger and open-source contributor with around 4 years of experience in software development, cloud-native architecture and distributed systems.<br/> <br/>
+            I am specialized in transforming ideas into impactful solutions that resonate with innovation-driven organizations. If you're looking for someone who combines technical expertise with a collaborative spirit, let's connect and explore how we can drive meaningful change together.
+        </>
     },
     work: {
         display: true, // set to false to hide this section

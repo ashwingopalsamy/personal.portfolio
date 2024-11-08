@@ -1,6 +1,6 @@
 const baseURL = 'ashwingopalsamy.in'
 
-// Enable localization
+// Enable localiplazation
 const i18n = false;
 
 // Manage localized content in the messages folder

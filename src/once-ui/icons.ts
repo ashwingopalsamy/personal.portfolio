@@ -25,7 +25,10 @@ import {
 	PiUserCircleDuotone,
 	PiGridFourDuotone,
 	PiBookBookmarkDuotone,
-	PiImageDuotone
+	PiImageDuotone,
+	PiNotepadDuotone,
+	PiFilePdfDuotone,
+	PiCalendarCheckDuotone
 } from "react-icons/pi";
 
 import {
@@ -33,7 +36,8 @@ import {
 	FaGithub,
 	FaLinkedin,
 	FaXTwitter,
-	FaLink
+	FaLink,
+	FaDownload
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -56,7 +60,7 @@ export const iconLibrary: Record<string, IconType> = {
 	book: PiBookBookmarkDuotone,
 	close: HiMiniXMark,
 	openLink: HiOutlineLink,
-	calendar: HiCalendarDays,
+	calendar: PiCalendarCheckDuotone,
 	home: PiHouseDuotone,
 	reads: PiImageDuotone,
 	discord: FaDiscord,
@@ -64,4 +68,7 @@ export const iconLibrary: Record<string, IconType> = {
 	linkedin: FaLinkedin,
 	x: FaXTwitter,
 	link:FaLink,
+	pdf: PiFilePdfDuotone,
+	download: FaDownload,
+	blog:PiNotepadDuotone,
 };

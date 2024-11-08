@@ -1,9 +1,10 @@
-import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text } from '@/once-ui/components';
+import {Avatar, Button, Flex, Heading, Icon, IconButton, RevealFx, SmartImage, Tag, Text} from '@/once-ui/components';
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
+import React from "react";
 
 export async function generateMetadata(
     {params: {locale}}: { params: { locale: string }}
@@ -113,14 +114,6 @@ export default function About(
                         <Avatar
                             src={person.avatar}
                             size="xl"/>
-                        <Flex
-                            gap="8"
-                            alignItems="center">
-                            <Icon
-                                onBackground="accent-weak"
-                                name="globe"/>
-                            {person.location}
-                        </Flex>
                         { person.languages.length > 0 && (
                             <Flex
                                 wrap
@@ -128,7 +121,7 @@ export default function About(
                                 {person.languages.map((language, index) => (
                                     <Tag
                                         key={index}
-                                        size="l">
+                                        size="m">
                                         {language}
                                     </Tag>
                                 ))}
@@ -144,48 +137,25 @@ export default function About(
                         fillWidth minHeight="160"
                         direction="column" justifyContent="center"
                         marginBottom="32">
-                        {about.calendar.display && (
-                            <Flex
-                                className={styles.blockAlign}
-                                style={{
-                                    backdropFilter: 'blur(var(--static-space-1))',
-                                    border: '1px solid var(--brand-alpha-medium)',
-                                    width: 'fit-content'
-                                }}
-                                alpha="brand-weak" radius="full"
-                                fillWidth padding="4" gap="8" marginBottom="m"
-                                alignItems="center">
-                                <Flex paddingLeft="12">
-                                    <Icon
-                                        name="calendar"
-                                        onBackground="brand-weak"/>
-                                </Flex>
-                                <Flex
-                                    paddingX="8">
-                                    Schedule a call
-                                </Flex>
-                                <IconButton
-                                    href={about.calendar.link}
-                                    data-border="rounded"
-                                    variant="tertiary"
-                                    icon="chevronRight"/>
-                            </Flex>
-                        )}
                         <Heading
                             className={styles.textAlign}
-                            variant="display-strong-xl">
+                            variant="display-strong-s"
+                            marginBottom="xs"
+                        >
                             {person.name}
                         </Heading>
-                        <Text
-                            className={styles.textAlign}
-                            variant="display-default-xs"
-                            onBackground="neutral-weak">
-                            {person.role}
-                        </Text>
+                        { about.intro.display && (
+                            <Flex
+                                direction="column"
+                                textVariant="body-default-l"
+                                fillWidth gap="m" marginBottom="m">
+                                {about.intro.description}
+                            </Flex>
+                        )}
                         {social.length > 0 && (
                             <Flex
                                 className={styles.blockAlign}
-                                paddingTop="20" paddingBottom="8" gap="8" wrap>
+                                paddingTop="10" paddingBottom="8" gap="8" wrap>
                                 {social.map((item) => (
                                     item.link && (
                                         <Button
@@ -199,23 +169,115 @@ export default function About(
                                 ))}
                             </Flex>
                         )}
-                    </Flex>
-
-                    { about.intro.display && (
                         <Flex
-                            direction="column"
-                            textVariant="body-default-l"
-                            fillWidth gap="m" marginBottom="xl">
-                            {about.intro.description}
+                            className={styles.blockAlign}
+                            paddingTop="20" paddingBottom="8" gap="8" wrap>
+                            <Flex
+                                style={{
+                                    border: '1px solid var(--brand-alpha-medium)',
+                                    width: 'fit-content'
+                                }}
+                                alpha="accent-weak" radius="full"
+                                padding="8" gap="8"
+                                alignItems="center">
+                                <Flex>
+                                    <Icon
+                                        name="pdf"
+                                        onBackground="accent-weak" />
+                                </Flex>
+                                <Flex>
+                                    Download Resume
+                                </Flex>
+                                <IconButton
+                                    href={`${person.resume}`}
+                                    data-border="rounded"
+                                    variant="tertiary"
+                                    icon="chevronDown" />
+                            </Flex>
+                            {about.calendar.display && (
+                                <Flex
+                                    style={{
+                                        backdropFilter: 'blur(var(--static-space-1))',
+                                        border: '1px solid var(--brand-alpha-medium)',
+                                        width: 'fit-content'
+                                    }}
+                                    alpha="accent-weak" radius="full"
+                                    padding="8" gap="8"
+                                    alignItems="center">
+                                    <Flex>
+                                        <Icon
+                                            name="calendar"
+                                            onBackground="accent-weak" />
+                                    </Flex>
+                                    <Flex>
+                                        Meet in 1:1 call
+                                    </Flex>
+                                    <IconButton
+                                        href={about.calendar.link}
+                                        data-border="rounded"
+                                        variant="tertiary"
+                                        icon="chevronRight" />
+                                </Flex>
+                            )}
                         </Flex>
-                    )}
+
+
+
+                        {/*{about.calendar.display && (*/}
+                        {/*    <Flex*/}
+                        {/*        className={styles.blockAlign}*/}
+                        {/*        style={{*/}
+                        {/*            backdropFilter: 'blur(var(--static-space-1))',*/}
+                        {/*            border: '1px solid var(--brand-alpha-medium)',*/}
+                        {/*            width: 'fit-content'*/}
+                        {/*        }}*/}
+                        {/*        alpha="accent-weak" radius="full"*/}
+                        {/*        fillWidth padding="4" gap="8" marginBottom="s" marginTop="s"*/}
+                        {/*        alignItems="center">*/}
+                        {/*        <Flex paddingLeft="12">*/}
+                        {/*            <Icon*/}
+                        {/*                name="calendar"*/}
+                        {/*                onBackground="accent-weak"/>*/}
+                        {/*        </Flex>*/}
+                        {/*        <Flex*/}
+                        {/*            paddingX="8">*/}
+                        {/*            Meet in 1:1 call*/}
+                        {/*        </Flex>*/}
+                        {/*        <IconButton*/}
+                        {/*            href={about.calendar.link}*/}
+                        {/*            data-border="rounded"*/}
+                        {/*            variant="tertiary"*/}
+                        {/*            icon="chevronRight"/>*/}
+                        {/*    </Flex>*/}
+                        {/*)}*/}
+                        {/*<Flex translateY="10" delay={0.1}>*/}
+                        {/*    <Button*/}
+                        {/*        data-border="rounded"*/}
+                        {/*        href={`${person.resume}`}*/}
+                        {/*        variant="tertiary"*/}
+                        {/*        suffixIcon="chevronDown"*/}
+                        {/*        size="m">*/}
+                        {/*        <Flex*/}
+                        {/*            gap="8"*/}
+                        {/*            alignItems="center">*/}
+                        {/*            {about.avatar.display && (*/}
+                        {/*                <Avatar*/}
+                        {/*                    style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}*/}
+                        {/*                    src={person.avatar}*/}
+                        {/*                    size="m"/>*/}
+                        {/*            )}*/}
+                        {/*            Download Resume*/}
+                        {/*        </Flex>*/}
+                        {/*    </Button>*/}
+                        {/*</Flex>*/}
+                    </Flex>
 
                     { about.work.display && (
                         <>
                             <Heading
                                 as="h2"
                                 id={about.work.title}
-                                variant="display-strong-s"
+                                variant="display-medium-s"
                                 marginBottom="m">
                                 {about.work.title}
                             </Heading>
@@ -293,7 +355,7 @@ export default function About(
                             <Heading
                                 as="h2"
                                 id={about.soft.title}
-                                variant="display-strong-s"
+                                variant="display-medium-s"
                                 marginBottom="m">
                                 {about.soft.title}
                             </Heading>
@@ -366,67 +428,40 @@ export default function About(
                         </>
                     )}
 
-                    {/*{ about.studies.display && (*/}
-                    {/*    <>*/}
-                    {/*        <Heading*/}
-                    {/*            as="h2"*/}
-                    {/*            id={about.studies.title}*/}
-                    {/*            variant="display-strong-s"*/}
-                    {/*            marginBottom="m">*/}
-                    {/*            {about.studies.title}*/}
-                    {/*        </Heading>*/}
-                    {/*        <Flex*/}
-                    {/*            direction="column"*/}
-                    {/*            fillWidth gap="l" marginBottom="40">*/}
-                    {/*            {about.studies.institutions.map((institution, index) => (*/}
-                    {/*                <Flex*/}
-                    {/*                    key={`${institution.name}-${index}`}*/}
-                    {/*                    fillWidth gap="4"*/}
-                    {/*                    direction="column">*/}
-                    {/*                    <Text*/}
-                    {/*                        id={institution.name}*/}
-                    {/*                        variant="heading-strong-l">*/}
-                    {/*                        {institution.name}*/}
-                    {/*                    </Text>*/}
-                    {/*                    <Text*/}
-                    {/*                        variant="heading-default-xs"*/}
-                    {/*                        onBackground="neutral-weak">*/}
-                    {/*                        {institution.description}*/}
-                    {/*                    </Text>*/}
-                    {/*                </Flex>*/}
-                    {/*            ))}*/}
-                    {/*        </Flex>*/}
-                    {/*    </>*/}
-                    {/*)}*/}
-
-                    { about.technical.display && (
+                    {about.technical.display && (
                         <>
                             <Heading
                                 as="h2"
                                 id={about.technical.title}
-                                variant="display-strong-s" marginBottom="40">
+                                variant="display-medium-s"
+                                marginBottom="40">
                                 {about.technical.title}
                             </Heading>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l">
+                                fillWidth
+                                gap="l"
+                                marginBottom="40">
                                 {about.technical.skills.map((skill, index) => (
                                     <Flex
-                                        key={`${skill}-${index}`}
-                                        fillWidth gap="4"
+                                        key={`${skill.title}-${index}`}
+                                        fillWidth
+                                        gap="4"
+                                        id={skill.title}
                                         direction="column">
-                                        <Text
-                                            variant="heading-strong-l">
+                                        <Text variant="heading-strong-l">
                                             {skill.title}
                                         </Text>
                                         <Text
                                             variant="body-default-m"
-                                            onBackground="neutral-weak">
+                                            onBackground="neutral-medium">
                                             {skill.description}
                                         </Text>
                                         {skill.images.length > 0 && (
                                             <Flex
-                                                fillWidth paddingTop="m" gap="12"
+                                                fillWidth
+                                                paddingTop="m"
+                                                gap="12"
                                                 wrap>
                                                 {skill.images.map((image, index) => (
                                                     <Flex
@@ -434,7 +469,8 @@ export default function About(
                                                         border="neutral-medium"
                                                         borderStyle="solid-1"
                                                         radius="m"
-                                                        minWidth={image.width} height={image.height}>
+                                                        minWidth={image.width}
+                                                        height={image.height}>
                                                         <SmartImage
                                                             enlarge
                                                             radius="m"
@@ -450,6 +486,7 @@ export default function About(
                             </Flex>
                         </>
                     )}
+
                 </Flex>
             </Flex>
         </Flex>

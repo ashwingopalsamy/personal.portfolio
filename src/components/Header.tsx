@@ -75,7 +75,7 @@ export const Header = () => {
             className={styles.position}
             as="header"
             zIndex={9}
-            fillWidth padding="8"
+            fillWidth padding="12"
             justifyContent="center">
             <Flex
                 paddingLeft="12" fillWidth
@@ -89,7 +89,7 @@ export const Header = () => {
             </Flex>
             <Flex fillWidth justifyContent="center">
                 <Flex
-                    background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-4" shadow="l"
+                    background="surface" border="neutral-medium" borderStyle="solid-1" radius="m-8" shadow="xl"
                     padding="4"
                     justifyContent="center">
                     <Flex
@@ -121,7 +121,7 @@ export const Header = () => {
                         )}
                         { routes['/blog'] && (
                             <ToggleButton
-                                prefixIcon="book"
+                                prefixIcon="blog"
                                 href={`/${params?.locale}/blog`}
                                 selected={pathname.startsWith('/blog')}>
                                 <Flex paddingX="2" hide="s">{blog.label}</Flex>
@@ -129,7 +129,7 @@ export const Header = () => {
                         )}
                         { routes['/reads'] && (
                             <ToggleButton
-                                prefixIcon="gallery"
+                                prefixIcon="book"
                                 href={`/${params?.locale}/gallery`}
                                 selected={pathname.startsWith('/gallery')}>
                                 <Flex paddingX="2" hide="s">{gallery.label}</Flex>
