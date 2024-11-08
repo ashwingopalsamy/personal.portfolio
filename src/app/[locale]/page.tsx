@@ -112,7 +112,7 @@ export default function Home(
 											src={person.avatar}
 											size="m"/>
 										)}
-										{t("about.title")}
+									Resume
 								</Flex>
 							</Button>
 						</RevealFx>

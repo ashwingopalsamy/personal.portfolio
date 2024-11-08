@@ -33,7 +33,7 @@ const social = [
         link: 'https://www.linkedin.com/in/ashwingopalsamy/',
     },
     {
-        name: 'X',
+        name: '(Formerly Twitter)',
         icon: 'x',
         link: 'https://x.com/ashwin2125',
     },
@@ -41,6 +41,11 @@ const social = [
         name: 'Email',
         icon: 'email',
         link: 'mailto:ashwin2125@gmail.com',
+    },
+    {
+        name: 'LinkTree',
+        icon: 'link',
+        link: 'https://linktr.ee/ashwingopalsamy',
     },
 ]
 

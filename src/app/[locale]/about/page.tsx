@@ -56,9 +56,9 @@ export default function About(
             items: about.work.experiences.map(experience => experience.company)
         },
         { 
-            title: about.studies.title,
-            display: about.studies.display,
-            items: about.studies.institutions.map(institution => institution.name)
+            title: about.soft.title,
+            display: about.soft.display,
+            items: about.soft.education.map(education => education.course)
         },
         { 
             title: about.technical.title,
@@ -288,38 +288,116 @@ export default function About(
                         </>
                     )}
 
-                    { about.studies.display && (
+                    { about.soft.display && (
                         <>
                             <Heading
                                 as="h2"
-                                id={about.studies.title}
+                                id={about.soft.title}
                                 variant="display-strong-s"
                                 marginBottom="m">
-                                {about.studies.title}
+                                {about.soft.title}
                             </Heading>
                             <Flex
                                 direction="column"
                                 fillWidth gap="l" marginBottom="40">
-                                {about.studies.institutions.map((institution, index) => (
+                                {about.soft.education.map((education, index) => (
                                     <Flex
-                                        key={`${institution.name}-${index}`}
-                                        fillWidth gap="4"
+                                        key={`${education.course}-${education.role}-${index}`}
+                                        fillWidth
                                         direction="column">
+                                        <Flex
+                                            fillWidth
+                                            justifyContent="space-between"
+                                            alignItems="flex-end"
+                                            marginBottom="4">
+                                            <Text
+                                                id={education.course}
+                                                variant="heading-strong-l">
+                                                {education.course}
+                                            </Text>
+                                            <Text
+                                                variant="heading-default-xs"
+                                                onBackground="neutral-weak">
+                                                {education.timeframe}
+                                            </Text>
+                                        </Flex>
                                         <Text
-                                            id={institution.name}
-                                            variant="heading-strong-l">
-                                            {institution.name}
+                                            variant="body-default-s"
+                                            onBackground="brand-weak"
+                                            marginBottom="m">
+                                            {education.college}
                                         </Text>
-                                        <Text
-                                            variant="heading-default-xs"
-                                            onBackground="neutral-weak">
-                                            {institution.description}
-                                        </Text>
+                                        <Flex
+                                            as="ul"
+                                            direction="column" gap="16">
+                                            {education.achievements.map((achievement: string, index: any) => (
+                                                <Text
+                                                    as="li"
+                                                    variant="body-default-m"
+                                                    key={`${education.course}-${index}`}>
+                                                    {achievement}
+                                                </Text>
+                                            ))}
+                                        </Flex>
+                                        {education.images.length > 0 && (
+                                            <Flex
+                                                fillWidth paddingTop="m" paddingLeft="40"
+                                                wrap>
+                                                {education.images.map((image, index) => (
+                                                    <Flex
+                                                        key={index}
+                                                        border="neutral-medium"
+                                                        borderStyle="solid-1"
+                                                        radius="m"
+                                                        minWidth={image.width} height={image.height}>
+                                                        <SmartImage
+                                                            enlarge
+                                                            radius="m"
+                                                            sizes={image.width.toString()}
+                                                            alt={image.alt}
+                                                            src={image.src}/>
+                                                    </Flex>
+                                                ))}
+                                            </Flex>
+                                        )}
                                     </Flex>
                                 ))}
                             </Flex>
                         </>
                     )}
+
+                    {/*{ about.studies.display && (*/}
+                    {/*    <>*/}
+                    {/*        <Heading*/}
+                    {/*            as="h2"*/}
+                    {/*            id={about.studies.title}*/}
+                    {/*            variant="display-strong-s"*/}
+                    {/*            marginBottom="m">*/}
+                    {/*            {about.studies.title}*/}
+                    {/*        </Heading>*/}
+                    {/*        <Flex*/}
+                    {/*            direction="column"*/}
+                    {/*            fillWidth gap="l" marginBottom="40">*/}
+                    {/*            {about.studies.institutions.map((institution, index) => (*/}
+                    {/*                <Flex*/}
+                    {/*                    key={`${institution.name}-${index}`}*/}
+                    {/*                    fillWidth gap="4"*/}
+                    {/*                    direction="column">*/}
+                    {/*                    <Text*/}
+                    {/*                        id={institution.name}*/}
+                    {/*                        variant="heading-strong-l">*/}
+                    {/*                        {institution.name}*/}
+                    {/*                    </Text>*/}
+                    {/*                    <Text*/}
+                    {/*                        variant="heading-default-xs"*/}
+                    {/*                        onBackground="neutral-weak">*/}
+                    {/*                        {institution.description}*/}
+                    {/*                    </Text>*/}
+                    {/*                </Flex>*/}
+                    {/*            ))}*/}
+                    {/*        </Flex>*/}
+                    {/*    </>*/}
+                    {/*)}*/}
 
                     { about.technical.display && (
                         <>
