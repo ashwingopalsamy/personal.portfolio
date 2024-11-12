@@ -129,6 +129,24 @@ const about = {
             }
         ]
     },
+    studies:{
+        display: true, // set to false to hide this section
+        title: 'Education',
+        education: [
+            {
+                course: 'Bachelors in Information Technology.',
+                timeframe: '2017 - 2021',
+                college: 'Hindusthan College of Engineering and Technology (Affl. to Anna University)',
+                achievements: [
+                    <>Graduated ’First Class with Distinction’, with CGPA score of 8.2 / 10.</>,
+                    <>Coursework include Data Structures and Algorithms, Design and Analysis of Algorithms, Artificial Intelligence, Database Management Systems, Operating System, Computer Networks, Software Engineering and Cybersecurity.</>,
+                    <>Ranked #1 in coding competitions and revitalized student and developer clubs, leading key initiatives.</>
+                ],
+                images: [
+                ]
+            },
+        ]
+    },
     // studies: {
     //     display: true, // set to false to hide this section
     //     title: 'Studies',
@@ -173,24 +191,6 @@ const about = {
                 images: []
             }
         ]
-    },
-    soft:{
-        display: true, // set to false to hide this section
-        title: 'Education',
-        education: [
-            {
-                course: 'Bachelors in Information Technology.',
-                timeframe: '2017 - 2021',
-                college: 'Hindusthan College of Engineering and Technology (Affl. to Anna University)',
-                achievements: [
-                    <>Graduated ’First Class with Distinction’, with CGPA score of 8.2 / 10.</>,
-                    <>Coursework include Data Structures and Algorithms, Design and Analysis of Algorithms, Artificial Intelligence, Database Management Systems, Operating System, Computer Networks, Software Engineering and Cybersecurity.</>,
-                    <>Ranked #1 in coding competitions and revitalized student and developer clubs, leading key initiatives.</>
-                ],
-                images: [
-                ]
-            },
-            ]
     }
 }
 
@@ -223,7 +223,7 @@ const gallery = {
         { 
             src: '/images/gallery/img-02.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-03.jpg', 
@@ -233,12 +233,12 @@ const gallery = {
         { 
             src: '/images/gallery/img-04.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-05.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-06.jpg', 
@@ -248,7 +248,7 @@ const gallery = {
         { 
             src: '/images/gallery/img-07.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-08.jpg', 
@@ -258,32 +258,12 @@ const gallery = {
         { 
             src: '/images/gallery/img-09.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
+            orientation: 'vertical'
         },
         { 
             src: '/images/gallery/img-10.jpg', 
             alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-11.jpg', 
-            alt: 'image',
             orientation: 'vertical'
-        },
-        { 
-            src: '/images/gallery/img-12.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-13.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
-        },
-        { 
-            src: '/images/gallery/img-14.jpg', 
-            alt: 'image',
-            orientation: 'horizontal'
         },
     ]
 }

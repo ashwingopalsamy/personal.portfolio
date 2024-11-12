@@ -58,11 +58,11 @@ export default function About(
         },
         {
             // @ts-ignore
-            title: about.soft.title,
+            title: about.studies.title,
             // @ts-ignore
-            display: about.soft.display,
+            display: about.studies.display,
             // @ts-ignore
-            items: about.soft.education.map((education: { course: any; }) => education.course)
+            items: about.studies.education.map((education: { course: any; }) => education.course)
         },
         { 
             title: about.technical.title,
@@ -72,7 +72,7 @@ export default function About(
     ]
 
     // @ts-ignore
-    const {education: education1, title, display} = about.soft;
+    const {education: education1, title, display} = about.studies;
     return (
         <Flex
             fillWidth maxWidth="m"
